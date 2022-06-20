@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSwatch().copyWith(
           primary: const Color(0xFF2795BB),
         ),
+        scaffoldBackgroundColor: const Color(0xFFF2F2F2),
       ),
       initialRoute: 'Home',
       routes: {'Home': (context) => const MyHomePage()},
@@ -33,8 +34,8 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
   static String selected = 'Home';
-  final Map<String, Widget> pages = const {
-    'Home': HomePage(),
+  final Map<String, dynamic> pages = const {
+    'Home': <String, dynamic>{'Home': HomePage()},
     'News': NewsPage(),
     'Servizi': ServiziPage(),
     'Prenotazione': PrenotazionePage(),
@@ -58,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(selected: MyHomePage.selected, callback: callback),
-      body: widget.pages[MyHomePage.selected],
+      body: widget.pages[MyHomePage.selected]['Home'],
     );
   }
 }
