@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
               child: Text(
                   'Offrire le prestazioni sanitarie più efficaci e all’avanguardia.'),
             ),
-            const LinkButton(link: 'link')
+            const LinkButton(link: 'Home/Mission')
           ],
         ),
       ),
@@ -64,7 +64,7 @@ class _HomePageState extends State<HomePage> {
               padding: EdgeInsets.symmetric(horizontal: 8.0),
               child: Text('infine per  e-Mail cup@nuovorobbiani.it .'),
             ),
-            const LinkButton(link: 'link')
+            const LinkButton(link: 'News/Apertura poliambulatorio')
           ],
         ),
       ),
@@ -78,7 +78,7 @@ class _HomePageState extends State<HomePage> {
               padding: EdgeInsets.all(8.0),
               child: Text('Amministrazione Trasparente '),
             ),
-            const LinkButton(link: 'link')
+            const LinkButton(link: 'Home/Amministrazione trasparente')
           ],
         ),
       ),
@@ -181,7 +181,6 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            const LinkButton(link: 'link')
           ],
         ),
       ),
@@ -199,7 +198,7 @@ class _HomePageState extends State<HomePage> {
               child: Text(
                   'Sette giorni tra la richiesta e la prestazione è il massimo tempo con cui, ragionevolmente, il Centro Medico Nuovo Robbiani vuole erogare servizi ai propri pazienti, così come un massimo di 4 giorni per la risposta agli esami di tipo radiologico.'),
             ),
-            const LinkButton(link: 'link')
+            const LinkButton(link: 'Home/Il personale')
           ],
         ),
       ),
@@ -217,7 +216,7 @@ class _HomePageState extends State<HomePage> {
               child: Text(
                   'Il Centro Medico Nuovo Robbiani accoglie i pazienti in una struttura di nuova costruzione e con un’organizzazione moderna in grado di coniugare l’innovazione delle tecnologie all’avanguardia usate nei reparti con l’esigenza umana di erogare, a tutti gli utenti, servizi di assistenza medica in modo attento ed efficiente'),
             ),
-            const LinkButton(link: 'link')
+            const LinkButton(link: 'Home/Struttura')
           ],
         ),
       ),
@@ -295,6 +294,7 @@ class _HomePageState extends State<HomePage> {
                     items: imageSliders,
                     carouselController: _controller,
                     options: CarouselOptions(
+                      autoPlayInterval: const Duration(seconds: 5),
                       autoPlay: true,
                       enlargeCenterPage: true,
                       aspectRatio: 3.6,
@@ -353,11 +353,11 @@ class _HomePageState extends State<HomePage> {
       );
       finalList[1] = Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [list[0]],
+        children: [list[1]],
       );
       finalList[2] = Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [list[0]],
+        children: [list[2]],
       );
     }
 

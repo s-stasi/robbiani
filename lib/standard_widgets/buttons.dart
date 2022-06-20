@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../main.dart';
 
 class LinkButton extends StatelessWidget {
   final String link;
@@ -12,7 +13,9 @@ class LinkButton extends StatelessWidget {
         height: 40,
         width: double.infinity,
         child: TextButton(
-          onPressed: () {},
+          onPressed: () {
+            MyHomePage.of(context).setPath(link);
+          },
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all<Color>(
                 Theme.of(context).primaryColor),

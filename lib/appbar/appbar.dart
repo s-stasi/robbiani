@@ -10,9 +10,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       : super(key: key);
 
   final List<String> names = const [
-    'Home',
-    'News',
-    'Servizi',
+    'Home/Home',
+    'News/News',
+    'Servizi/Servizi',
     'Prenotazione',
     'Informazioni',
     'Tempi di attesa',
@@ -49,16 +49,25 @@ class AppBarButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FlatButton(
-      shape: selected
-          ? const Border(bottom: BorderSide(color: Colors.white, width: 3))
-          : null,
-      onPressed: () {
-        callback(text);
-      },
-      child: Text(
-        text,
-        style: const TextStyle(color: Colors.white),
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        border: selected
+            ? const Border(
+                bottom: BorderSide(
+                  color: Colors.white,
+                  width: 3,
+                ),
+              )
+            : null,
+      ),
+      child: TextButton(
+        onPressed: () {
+          callback(text);
+        },
+        child: Text(
+          text.split('/').last,
+          style: const TextStyle(color: Colors.white),
+        ),
       ),
     );
   }

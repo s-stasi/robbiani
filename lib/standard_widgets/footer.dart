@@ -6,7 +6,6 @@ class Footer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double half = MediaQuery.of(context).size.width / 2;
     return Padding(
       padding: const EdgeInsets.only(top: 10.0),
       child: Container(
@@ -14,8 +13,8 @@ class Footer extends StatelessWidget {
         // height: 450,
         child: Row(
           children: [
-            SizedBox(
-              width: half,
+            Expanded(
+              // width: half,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
