@@ -17,6 +17,7 @@ class CustomCard extends StatelessWidget {
         color: Colors.white,
         child: Center(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
                 padding: const EdgeInsets.all(8.0),
