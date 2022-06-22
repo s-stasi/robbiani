@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:robbiani/prenotazione-page.dart';
-import 'appbar/appbar.dart';
 import 'contatti-page.dart';
 import 'home-page.dart';
 import 'info-page.dart';
@@ -13,6 +12,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  static String selected = 'Home/Home';
   const MyApp({Key? key}) : super(key: key);
 
   @override
@@ -26,84 +26,31 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: const Color(0xFFF2F2F2),
       ),
       initialRoute: 'Home',
-      routes: {'Home': (context) => const MyHomePage()},
+      routes: {
+        'Home': (context) => const HomePage(), // done
+        'Home/Ambulatorio lombalgia': (context) => const SizedBox(),
+        'Home/Mission': (context) => const SizedBox(),
+        'Home/Amministrazionetrasparente': (context) => const SizedBox(),
+        'Home/Il personale': (context) => const SizedBox(),
+        'Home/Struttura': (context) => const SizedBox(),
+        'News': (context) => const NewsPage(), // done
+        'News/Raccolta fondi': (context) => const SizedBox(),
+        'News/Riapertura attività': (context) => const SizedBox(),
+        'News/Apertura poliambulatorio': (context) => const SizedBox(),
+        'News/Prestazioni radiologiche': (context) => const SizedBox(),
+        'News/Ernie lombari': (context) => const SizedBox(),
+        'Servizi': (context) => const ServiziPage(),
+        'Servisi/Diagnostica e radiologia': (context) => const SizedBox(),
+        'Servisi/Specialisti e ambulatori': (context) => const SizedBox(),
+        'Servisi/Tecnologie': (context) => const SizedBox(),
+        'Servisi/Degenze': (context) => const SizedBox(),
+        'Servisi/Sala operatoria': (context) => const SizedBox(),
+        'Servisi/Centro prelievi': (context) => const SizedBox(),
+        'Prenotazione': (context) => const PrenotazionePage(),
+        'Informazioni': (context) => const InfoPage(),
+        'Tempi di attesa': (context) => const TempiPage(),
+        'Contatti': (context) => const ContattiPage(),
+      },
     );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
-  static String selected = 'Home/Home';
-  static const Map<String, dynamic> pages = {
-    'Home': <String, dynamic>{
-      'Home': HomePage(),
-      'Ambulatorio lombalgia': SizedBox(),
-      'Mission': SizedBox(),
-      'Amministrazione trasparente': SizedBox(),
-      'Il personale': SizedBox(),
-      'Struttura': SizedBox(),
-    },
-    'News': {
-      'News': NewsPage(),
-      'Raccolta fondi': SizedBox(),
-      'Riapertura attività': SizedBox(),
-      'Apertura poliambulatorio': SizedBox(),
-      'Prestazioni radiologiche': SizedBox(),
-      'Cura ernie lombari': SizedBox(),
-    },
-    'Servizi': {
-      'Servizi': ServiziPage(),
-      'Diagnostica e radiologia': SizedBox(),
-      'Specialisti e ambulatori': SizedBox(),
-      'Tecnologie': SizedBox(),
-      'Degenze': SizedBox(),
-      'Sala operatoria': SizedBox(),
-      'Centro prelievi': SizedBox(),
-    },
-    'Prenotazione': PrenotazionePage(),
-    'Informazioni': InfoPage(),
-    'Tempi di attesa': TempiPage(),
-    'Contatti': ContattiPage(),
-  };
-
-  static MyHomePageState of(BuildContext context) =>
-      context.findAncestorStateOfType<MyHomePageState>()!;
-
-  @override
-  State<MyHomePage> createState() => MyHomePageState();
-}
-
-class MyHomePageState extends State<MyHomePage> {
-  void callback(String value) {
-    setState(() {
-      MyHomePage.selected = value;
-    });
-  }
-
-  void setPath(String path) {
-    MyHomePage.selected = path;
-    setState(() {});
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    getRoute();
-    return Scaffold(
-      appBar: CustomAppBar(selected: MyHomePage.selected, callback: callback),
-      body: getRoute(),
-    );
-  }
-
-  Widget getRoute() {
-    List<String> splitted = MyHomePage.selected.split('/');
-    debugPrint('splitted = $splitted');
-
-    dynamic temp = MyHomePage.pages;
-
-    for (String i in splitted) {
-      temp = temp[i];
-      debugPrint('$temp');
-    }
-    return temp;
   }
 }

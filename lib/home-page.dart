@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:robbiani/appbar/appbar.dart';
 import 'standard_widgets/buttons.dart';
 import 'standard_widgets/cards.dart';
 import 'standard_widgets/footer.dart';
@@ -281,60 +282,63 @@ class _HomePageState extends State<HomePage> {
           ),
         )
         .toList();
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          SizedBox(
-            height: carouselHeight + 28,
-            child: Column(
-              children: [
-                SizedBox(
-                  height: carouselHeight,
-                  child: CarouselSlider(
-                    items: imageSliders,
-                    carouselController: _controller,
-                    options: CarouselOptions(
-                      autoPlayInterval: const Duration(seconds: 5),
-                      autoPlay: true,
-                      enlargeCenterPage: true,
-                      aspectRatio: 3.6,
-                      onPageChanged: (index, reason) {
-                        setState(() {
-                          _current = index;
-                        });
-                      },
+    return Scaffold(
+      appBar: CustomAppBar(),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              height: carouselHeight + 28,
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: carouselHeight,
+                    child: CarouselSlider(
+                      items: imageSliders,
+                      carouselController: _controller,
+                      options: CarouselOptions(
+                        autoPlayInterval: const Duration(seconds: 5),
+                        autoPlay: true,
+                        enlargeCenterPage: true,
+                        aspectRatio: 3.6,
+                        onPageChanged: (index, reason) {
+                          setState(() {
+                            _current = index;
+                          });
+                        },
+                      ),
                     ),
                   ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: items.asMap().entries.map((entry) {
-                    return GestureDetector(
-                      onTap: () => _controller.animateToPage(entry.key),
-                      child: Container(
-                        width: 12.0,
-                        height: 12.0,
-                        margin: const EdgeInsets.symmetric(
-                            vertical: 8.0, horizontal: 4.0),
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color:
-                                (Theme.of(context).brightness == Brightness.dark
-                                        ? Colors.white
-                                        : Colors.black)
-                                    .withOpacity(
-                                        _current == entry.key ? 0.9 : 0.4)),
-                      ),
-                    );
-                  }).toList(),
-                ),
-              ],
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: items.asMap().entries.map((entry) {
+                      return GestureDetector(
+                        onTap: () => _controller.animateToPage(entry.key),
+                        child: Container(
+                          width: 12.0,
+                          height: 12.0,
+                          margin: const EdgeInsets.symmetric(
+                              vertical: 8.0, horizontal: 4.0),
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: (Theme.of(context).brightness ==
+                                          Brightness.dark
+                                      ? Colors.white
+                                      : Colors.black)
+                                  .withOpacity(
+                                      _current == entry.key ? 0.9 : 0.4)),
+                        ),
+                      );
+                    }).toList(),
+                  ),
+                ],
+              ),
             ),
-          ),
-          Column(children: createRows(context, firstRow)),
-          Column(children: createRows(context, secondRow)),
-          const Footer(),
-        ],
+            Column(children: createRows(context, firstRow)),
+            Column(children: createRows(context, secondRow)),
+            const Footer(),
+          ],
+        ),
       ),
     );
   }

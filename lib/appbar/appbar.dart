@@ -4,15 +4,13 @@ import 'package:robbiani/main.dart';
 typedef CallBack = void Function(String value);
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final String selected;
-  final CallBack callback;
-  const CustomAppBar({Key? key, required this.selected, required this.callback})
-      : super(key: key);
+  final String selected = MyApp.selected;
+  CustomAppBar({Key? key}) : super(key: key);
 
   final List<String> names = const [
-    'Home/Home',
-    'News/News',
-    'Servizi/Servizi',
+    'Home',
+    'News',
+    'Servizi',
     'Prenotazione',
     'Informazioni',
     'Tempi di attesa',
@@ -23,9 +21,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       leading: Image.asset('lib/assets/logo.png'),
-      actions: [
-        for (String i in names) AppBarButton(text: i, callback: callback)
-      ],
+      actions: [for (String i in names) AppBarButton(text: i)],
     );
   }
 
@@ -37,10 +33,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 class AppBarButton extends StatelessWidget {
   late bool selected;
   final String text;
-  final CallBack callback;
-  AppBarButton({Key? key, required this.text, required this.callback})
-      : super(key: key) {
-    if (text == MyHomePage.selected) {
+  AppBarButton({Key? key, required this.text}) : super(key: key) {
+    if (text == MyApp.selected) {
       selected = true;
     } else {
       selected = false;
@@ -62,7 +56,8 @@ class AppBarButton extends StatelessWidget {
       ),
       child: TextButton(
         onPressed: () {
-          callback(text);
+          MyApp.selected = text;
+          Navigator.of(context).pushNamed(text);
         },
         child: Text(
           text.split('/').last,

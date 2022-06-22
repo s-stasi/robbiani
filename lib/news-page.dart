@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:robbiani/appbar/appbar.dart';
 import 'package:robbiani/standard_widgets/buttons.dart';
 import 'package:robbiani/standard_widgets/cards.dart';
 import 'standard_widgets/footer.dart';
@@ -198,7 +199,12 @@ class _NewsPageState extends State<NewsPage> {
           children: [
             Center(
               child: Image.asset('lib/assets/esami.jpg',
-                  width: 284, height: 284 / 1.505376, fit: BoxFit.cover),
+                  width: 284, height: 284 / 1.505376 - 25, fit: BoxFit.cover),
+            ),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text(
+                  'Prestazioni in “TempoZero” al Nuovo Robbiani! Non serve prenotazione per i tuoi esami radiologici.'),
             ),
             Expanded(
               child: Column(
@@ -212,64 +218,94 @@ class _NewsPageState extends State<NewsPage> {
         ),
       ),
     ),
-    const CustomCard(
-        title:
-            'CURA DELLE ERNIE LOMBARI: INFILTRAZIONI TC GUIDATE DI OSSIGENO-OZONO AL NUOVO ROBBIANI',
-        child: SizedBox()),
+    CustomCard(
+      title:
+          'CURA DELLE ERNIE LOMBARI: INFILTRAZIONI TC GUIDATE DI OSSIGENO-OZONO AL NUOVO ROBBIANI',
+      child: SizedBox(
+        height: 300 - 35,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Center(
+              child: Image.asset('lib/assets/ernie.jpg',
+                  width: 284,
+                  height: 284 / 1.561338289962825,
+                  fit: BoxFit.cover),
+            ),
+            // const Padding(
+            //   padding: EdgeInsets.all(8.0),
+            //   child: Text(
+            //       'Prestazioni in “TempoZero” al Nuovo Robbiani! Non serve prenotazione per i tuoi esami radiologici.'),
+            // ),
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: const [
+                  LinkButton(link: 'News/Ernie lombari'),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    ),
   ];
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          if (MediaQuery.of(context).size.width >= 300 + 10 &&
-              MediaQuery.of(context).size.width < 600 + 20) ...[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [list[0]],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [list[1]],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [list[2]],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [list[4]],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [list[4]],
-            ),
-          ] else if (MediaQuery.of(context).size.width >= 600 + 20 &&
-              MediaQuery.of(context).size.width < 900 + 30) ...[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [list[0], list[1]],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [list[2], list[3]],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [list[4]],
-            ),
-          ] else if (MediaQuery.of(context).size.width >= 900 + 30) ...[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [list[0], list[1], list[2]],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [list[3], list[4]],
-            ),
+    return Scaffold(
+      appBar: CustomAppBar(),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            if (MediaQuery.of(context).size.width >= 300 + 10 &&
+                MediaQuery.of(context).size.width < 600 + 20) ...[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [list[0]],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [list[1]],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [list[2]],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [list[3]],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [list[4]],
+              ),
+            ] else if (MediaQuery.of(context).size.width >= 600 + 20 &&
+                MediaQuery.of(context).size.width < 900 + 30) ...[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [list[0], list[1]],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [list[2], list[3]],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [list[4]],
+              ),
+            ] else if (MediaQuery.of(context).size.width >= 900 + 30) ...[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [list[0], list[1], list[2]],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [list[3], list[4]],
+              ),
+            ],
+            const Footer(),
           ],
-          const Footer(),
-        ],
+        ),
       ),
     );
   }

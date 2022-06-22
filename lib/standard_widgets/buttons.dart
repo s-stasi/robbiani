@@ -14,7 +14,8 @@ class LinkButton extends StatelessWidget {
         width: double.infinity,
         child: TextButton(
           onPressed: () {
-            MyHomePage.of(context).setPath(link);
+            MyApp.selected = link;
+            Navigator.of(context).pushNamed(link);
           },
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all<Color>(
