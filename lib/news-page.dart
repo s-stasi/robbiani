@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_layout_grid/flutter_layout_grid.dart';
 import 'package:robbiani/appbar/appbar.dart';
 import 'package:robbiani/standard_widgets/buttons.dart';
 import 'package:robbiani/standard_widgets/cards.dart';
@@ -257,52 +258,14 @@ class _NewsPageState extends State<NewsPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            if (MediaQuery.of(context).size.width >= 300 + 10 &&
-                MediaQuery.of(context).size.width < 600 + 20) ...[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [list[0]],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [list[1]],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [list[2]],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [list[3]],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [list[4]],
-              ),
-            ] else if (MediaQuery.of(context).size.width >= 600 + 20 &&
-                MediaQuery.of(context).size.width < 900 + 30) ...[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [list[0], list[1]],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [list[2], list[3]],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [list[4]],
-              ),
-            ] else if (MediaQuery.of(context).size.width >= 900 + 30) ...[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [list[0], list[1], list[2]],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [list[3], list[4]],
-              ),
-            ],
+            LayoutGrid(
+              autoPlacement: AutoPlacement.rowSparse,
+              columnSizes: List<TrackSize>.generate(
+                  (MediaQuery.of(context).size.width / 310).floor(),
+                  (index) => auto),
+              rowSizes: List<TrackSize>.generate(list.length, (index) => auto),
+              children: [for (Widget i in list) Center(child: i)],
+            ),
             const Footer(),
           ],
         ),

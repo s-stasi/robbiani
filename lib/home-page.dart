@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter_layout_grid/flutter_layout_grid.dart';
 import 'package:robbiani/appbar/appbar.dart';
 import 'standard_widgets/buttons.dart';
 import 'standard_widgets/cards.dart';
@@ -21,204 +22,255 @@ class _HomePageState extends State<HomePage> {
     List<Widget> firstRow = [
       CustomCard(
         title: 'MISSION',
-        child: Column(
-          children: [
-            Image.asset('lib/assets/mission.png'),
-            const Padding(
-              padding: EdgeInsets.all(9.0),
-              child: Text(
-                  'Offrire le prestazioni sanitarie più efficaci e all’avanguardia.'),
-            ),
-            const LinkButton(link: 'Home/Mission')
-          ],
+        child: SizedBox(
+          height: 300,
+          child: Column(
+            children: [
+              Center(child: Image.asset('lib/assets/mission.png')),
+              const Padding(
+                padding: EdgeInsets.all(9.0),
+                child: Text(
+                    'Offrire le prestazioni sanitarie più efficaci e all’avanguardia.'),
+              ),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: const [
+                    LinkButton(link: 'Home/Mission'),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       CustomCard(
         title: 'POLIAMBULATORIO MEDICINA DELLO SPORT',
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Center(
-              child: Image.asset('lib/assets/medsport1.jpg',
-                  width: 170, height: 120, fit: BoxFit.fill),
-            ),
-            const Padding(
-              padding: EdgeInsets.only(left: 8.0, right: 8.0, bottom: 8.0),
-              child: Text(
-                  'PRENOTA LA TUA VISITA DI MEDICINA DELLO SPORT ONLINE SUL SITO'),
-            ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.0),
-              child: Text('https://medicinasportiva.nuovorobbiani.it'),
-            ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.0),
-              child: Text(
-                  'Con la possibilità di prenotare anche telefonicamente al 0374 415465'),
-            ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.0),
-              child:
-                  Text('Oppure con un messaggio whatsApp al numero 3486110090'),
-            ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.0),
-              child: Text('infine per  e-Mail cup@nuovorobbiani.it .'),
-            ),
-            const LinkButton(link: 'News/Apertura poliambulatorio')
-          ],
+        child: SizedBox(
+          height: 300,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Center(
+                child: Image.asset('lib/assets/medsport1.jpg',
+                    width: 170, height: 120, fit: BoxFit.fill),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(left: 8.0, right: 8.0, bottom: 8.0),
+                child: Text(
+                    'PRENOTA LA TUA VISITA DI MEDICINA DELLO SPORT ONLINE SUL SITO'),
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8.0),
+                child: Text('https://medicinasportiva.nuovorobbiani.it'),
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8.0),
+                child: Text(
+                    'Con la possibilità di prenotare anche telefonicamente al 0374 415465'),
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8.0),
+                child: Text(
+                    'Oppure con un messaggio whatsApp al numero 3486110090 ...'),
+              ),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: const [
+                    LinkButton(link: 'News/Apertura poliambulatorio'),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       CustomCard(
         title: 'AMMINISTRAZIONE TRASPARENTE',
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Center(child: Image.asset('lib/assets/mission.png')),
-            const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Text('Amministrazione Trasparente '),
-            ),
-            const LinkButton(link: 'Home/Amministrazione trasparente')
-          ],
+        child: SizedBox(
+          height: 300,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Center(child: Image.asset('lib/assets/mission.png')),
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text('Amministrazione Trasparente '),
+              ),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: const [
+                    LinkButton(link: 'Home/Amministrazione trasparente'),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
-    ];
-    List<Widget> secondRow = [
       CustomCard(
         title: 'FINI ISTITUZIONALI',
-        child: Column(
-          children: [
-            const Padding(
-              padding: EdgeInsets.all(9.0),
-              child: Text(
-                  'Offrire le prestazioni sanitarie più efficaci e all’avanguardia.'),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4),
-              child: Row(
-                children: [
-                  Container(
-                    height: 10.0,
-                    width: 10.0,
-                    decoration: const BoxDecoration(
-                      color: Colors.black,
-                      shape: BoxShape.circle,
-                    ),
-                  ),
-                  const Flexible(
-                    child: Padding(
-                      padding: EdgeInsets.only(left: 8.0),
-                      child:
-                          Text('Fornire servizi ospedalieri di alta qualità.'),
-                    ),
-                  ),
-                ],
+        child: SizedBox(
+          height: 300,
+          child: Column(
+            children: [
+              const Padding(
+                padding: EdgeInsets.all(9.0),
+                child: Text(
+                    'Offrire le prestazioni sanitarie più efficaci e all’avanguardia.'),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4),
-              child: Row(
-                children: [
-                  Container(
-                    height: 10.0,
-                    width: 10.0,
-                    decoration: const BoxDecoration(
-                      color: Colors.black,
-                      shape: BoxShape.circle,
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4),
+                child: Row(
+                  children: [
+                    Container(
+                      height: 10.0,
+                      width: 10.0,
+                      decoration: const BoxDecoration(
+                        color: Colors.black,
+                        shape: BoxShape.circle,
+                      ),
                     ),
-                  ),
-                  const Flexible(
-                    child: Padding(
-                      padding: EdgeInsets.only(left: 8.0),
-                      child: Text(
-                          'Garantire validi e celeri servizi ambulatoriali.'),
+                    const Flexible(
+                      child: Padding(
+                        padding: EdgeInsets.only(left: 8.0),
+                        child: Text(
+                            'Fornire servizi ospedalieri di alta qualità.'),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4),
-              child: Row(
-                children: [
-                  Container(
-                    height: 10.0,
-                    width: 10.0,
-                    decoration: const BoxDecoration(
-                      color: Colors.black,
-                      shape: BoxShape.circle,
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4),
+                child: Row(
+                  children: [
+                    Container(
+                      height: 10.0,
+                      width: 10.0,
+                      decoration: const BoxDecoration(
+                        color: Colors.black,
+                        shape: BoxShape.circle,
+                      ),
                     ),
-                  ),
-                  const Flexible(
-                    child: Padding(
-                      padding: EdgeInsets.only(left: 8.0),
-                      child:
-                          Text('Gestire il recupero con diagnosi e terapia.'),
+                    const Flexible(
+                      child: Padding(
+                        padding: EdgeInsets.only(left: 8.0),
+                        child: Text(
+                            'Garantire validi e celeri servizi ambulatoriali.'),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4),
-              child: Row(
-                children: [
-                  Container(
-                    height: 10.0,
-                    width: 10.0,
-                    decoration: const BoxDecoration(
-                      color: Colors.black,
-                      shape: BoxShape.circle,
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4),
+                child: Row(
+                  children: [
+                    Container(
+                      height: 10.0,
+                      width: 10.0,
+                      decoration: const BoxDecoration(
+                        color: Colors.black,
+                        shape: BoxShape.circle,
+                      ),
                     ),
-                  ),
-                  const Flexible(
-                    child: Padding(
-                      padding: EdgeInsets.only(left: 8.0),
-                      child: Text(
-                          'Aumentare l\'efficacia dei servizi sulla salute e sulla prevenzione.'),
+                    const Flexible(
+                      child: Padding(
+                        padding: EdgeInsets.only(left: 8.0),
+                        child:
+                            Text('Gestire il recupero con diagnosi e terapia.'),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4),
+                child: Row(
+                  children: [
+                    Container(
+                      height: 10.0,
+                      width: 10.0,
+                      decoration: const BoxDecoration(
+                        color: Colors.black,
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                    const Flexible(
+                      child: Padding(
+                        padding: EdgeInsets.only(left: 8.0),
+                        child: Text(
+                            'Aumentare l\'efficacia dei servizi sulla salute e sulla prevenzione.'),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       CustomCard(
         title: 'IL PERSONALE',
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Center(
-              child: Image.asset('lib/assets/il-personale.png',
-                  width: 170, height: 120, fit: BoxFit.fill),
-            ),
-            const Padding(
-              padding: EdgeInsets.only(left: 8.0, right: 8.0, bottom: 8.0),
-              child: Text(
-                  'Sette giorni tra la richiesta e la prestazione è il massimo tempo con cui, ragionevolmente, il Centro Medico Nuovo Robbiani vuole erogare servizi ai propri pazienti, così come un massimo di 4 giorni per la risposta agli esami di tipo radiologico.'),
-            ),
-            const LinkButton(link: 'Home/Il personale')
-          ],
+        child: SizedBox(
+          height: 300,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Center(
+                child: Image.asset('lib/assets/il-personale.png',
+                    width: 170, height: 120, fit: BoxFit.fill),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(left: 8.0, right: 8.0, bottom: 8.0),
+                child: Text(
+                    'Sette giorni tra la richiesta e la prestazione è il massimo tempo con cui, ragionevolmente, il Centro Medico Nuovo Robbiani vuole erogare servizi ai propri pazienti, così come un massimo di 4 giorni per la risposta agli esami di tipo radiologico.'),
+              ),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: const [
+                    LinkButton(link: 'Home/Il personale'),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       CustomCard(
         title: 'LA STRUTTURA',
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Center(
-              child: Image.asset('lib/assets/la-struttura.png',
-                  width: 170, height: 120, fit: BoxFit.fill),
-            ),
-            const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Text(
-                  'Il Centro Medico Nuovo Robbiani accoglie i pazienti in una struttura di nuova costruzione e con un’organizzazione moderna in grado di coniugare l’innovazione delle tecnologie all’avanguardia usate nei reparti con l’esigenza umana di erogare, a tutti gli utenti, servizi di assistenza medica in modo attento ed efficiente'),
-            ),
-            const LinkButton(link: 'Home/Struttura')
-          ],
+        child: SizedBox(
+          height: 300,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Center(
+                child: Image.asset('lib/assets/la-struttura.png',
+                    width: 170, height: 120, fit: BoxFit.fill),
+              ),
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text(
+                    'Il Centro Medico Nuovo Robbiani accoglie i pazienti in una struttura di nuova costruzione e con un’organizzazione moderna in grado di coniugare l’innovazione delle tecnologie all’avanguardia usate nei reparti con l’esigenza umana di erog...'),
+              ),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: const [
+                    LinkButton(link: 'Home/Struttura'),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     ];
@@ -334,57 +386,19 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            Column(children: createRows(context, firstRow)),
-            Column(children: createRows(context, secondRow)),
+            LayoutGrid(
+              autoPlacement: AutoPlacement.rowSparse,
+              columnSizes: List<TrackSize>.generate(
+                  (MediaQuery.of(context).size.width / 310).floor(),
+                  (index) => auto),
+              rowSizes:
+                  List<TrackSize>.generate(firstRow.length, (index) => auto),
+              children: [for (Widget i in firstRow) Center(child: i)],
+            ),
             const Footer(),
           ],
         ),
       ),
     );
-  }
-
-  List<Row> createRows(context, List<Widget> list) {
-    List<Row> finalList = [
-      Row(),
-      Row(),
-      Row(),
-    ];
-
-    if (MediaQuery.of(context).size.width >= 300 + 10) {
-      finalList[0] = Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [list[0]],
-      );
-      finalList[1] = Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [list[1]],
-      );
-      finalList[2] = Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [list[2]],
-      );
-    }
-
-    if (MediaQuery.of(context).size.width >= 600 + 20) {
-      finalList[0] = Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [list[0], list[1]],
-      );
-      finalList[1] = Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [list[2]],
-      );
-      finalList[2] = Row();
-    }
-
-    if (MediaQuery.of(context).size.width >= 900 + 30) {
-      finalList[0] = Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [list[0], list[1], list[2]],
-      );
-      finalList[1] = Row();
-      finalList[2] = Row();
-    }
-    return finalList;
   }
 }
